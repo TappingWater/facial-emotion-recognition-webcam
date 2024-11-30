@@ -1,0 +1,5 @@
+# Ignore all files in the folder pre-processed-images
+pre-processed_images/
+
+# Ignore all files in the folder api-test-images
+api-test_images/
