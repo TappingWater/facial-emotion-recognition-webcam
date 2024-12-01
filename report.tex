@@ -5,6 +5,53 @@
 
 \section*{Research}
 
+\subsection{Real Time Facial Emotion Recognition Using Deep Learning Models}
+\begin{enumerate}
+    \item \textbf{Convolutional Neural Networks (CNNs)}:
+    \begin{itemize}
+        \item CNNs are emphasized as the most effective model for facial emotion recognition due to their ability to capture spatial features from images.
+        \item CNNs employ convolutional layers with learnable filters to detect patterns like edges and textures.
+        \item Techniques such as max-pooling reduce spatial dimensions while retaining significant features.
+        \item Fully connected layers map extracted features to emotion classes, leveraging softmax for multi-class classification.
+        \item Batch normalization and dropout are incorporated to enhance stability and reduce overfitting.
+    \end{itemize}
+    \item \textbf{Residual Neural Network (ResNet-50)}:
+    \begin{itemize}
+        \item ResNet-50, known for its depth (50 layers) and use of residual connections, addresses the vanishing gradient problem.
+        \item Its deeper architecture allows it to capture complex features, though at the cost of higher computational requirements.
+        \item This model showed lower suitability for real-time tasks due to its resource intensiveness.
+    \end{itemize}
+    \item \textbf{Recurrent Neural Networks (RNNs)}:
+    \begin{itemize}
+        \item RNNs handle temporal dependencies in data, suitable for video-based emotion detection.
+        \item They process sequences with recurrent connections and internal memory to retain context over time.
+        \item Models like LSTM and BLSTM are highlighted for their ability to integrate temporal features for improved emotion recognition.
+    \end{itemize}
+    \item \textbf{Dual-Temporal Scale CNN (DTSCNN)}:
+    \begin{itemize}
+        \item This newer architecture uses two convolutional layers with different kernel sizes to capture both local and global patterns in temporal data.
+        \item Particularly useful for applications like audio and video emotion recognition.
+        \item DTSCNN models achieved good accuracy but require more research to mature.
+    \end{itemize}
+\end{enumerate}
+
+\section*{CNN-Specific Techniques}
+\begin{itemize}
+    \item \textbf{Feature Extraction}: Hierarchical representations from stacking convolutional layers.
+    \item \textbf{Pooling Mechanisms}: Max-pooling for dimensionality reduction and translation invariance.
+    \item \textbf{Activation Functions}: Non-linearities (e.g., ReLU) to enhance the network's learning capacity.
+    \item \textbf{Dropout Regularization}: Prevents overfitting by randomly disabling neurons during training.
+    \item \textbf{Optimization}: Adaptive optimizers like Adam to enhance convergence.
+\end{itemize}
+
+\section*{Comparison and Results}
+\begin{itemize}
+    \item CNNs outperformed other models in both accuracy and speed, achieving up to 96.03\% accuracy on a modified FER dataset.
+    \item ResNet-50, while accurate, was computationally expensive and less suited for real-time tasks.
+    \item RNNs excelled in handling temporal features but were less effective for static images.
+    \item DTSCNN, though promising, requires further refinement for real-time use cases.
+\end{itemize}
+
 \subsection*{Scalable Real-Time Emotion Recognition using EfficientNetV2 and Resolution Scaling}
 
 \subsubsection*{Base Model: EfficientNetV2}
