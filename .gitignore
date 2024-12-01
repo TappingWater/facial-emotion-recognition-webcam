@@ -3,3 +3,7 @@ pre-processed_images/
 
 # Ignore all files in the folder api-test-images
 api-test_images/
+
+report.aux
+report.fdb_latexmk
+report.fls 
