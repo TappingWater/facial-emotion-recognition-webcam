@@ -1,9 +1,3 @@
----
-author:
-- Chanaka Perera, Jason Moore
-title: Building an API for detecting Facial Emotion using FastAPI and
-	PyTorch
----
 # Building an API for detecting Facial Emotion using FastAPI and PyTorch
 
 ## Installation
