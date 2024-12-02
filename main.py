@@ -1,5 +1,4 @@
 # app/main.py
-
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import JSONResponse
 import torch
@@ -15,7 +14,7 @@ with open('./models/class_to_idx.json', 'r') as f:
     class_to_idx = json.load(f)
 
 # Create index to class mapping
-idx_to_class = {int(v): k for k, v in class_to_idx.items()}  # Ensure keys are integers
+idx_to_class = {int(v): k for k, v in class_to_idx.items()} 
 
 # Load the model at startup
 @app.on_event("startup")
@@ -23,7 +22,7 @@ def startup_event():
     global model
     global device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model_path = './models/efficient_net.pth'  # Path to your .pth file
+    model_path = './models/efficient_net.pth'
     model = load_model(model_path, device)
     print(f"Model loaded on {device}.")
 
@@ -43,22 +42,18 @@ async def predict(file: UploadFile = File(...)):
 
     try:
         # Read image bytes
-        image_bytes = await file.read()
-        
+        image_bytes = await file.read()        
         # Preprocess the image (detect and crop face)
         input_tensor = preprocess_image(image_bytes)
         input_tensor = input_tensor.to(device)
-
         # Perform inference
         with torch.no_grad():
             outputs = model(input_tensor)
             probabilities = torch.softmax(outputs, dim=1)
             confidence, predicted = torch.max(probabilities, 1)
-
         # Get class name
         predicted_class = idx_to_class[predicted.item()]
         confidence_score = confidence.item()
-
         # Return the prediction
         return JSONResponse(content={
             "predicted_class": predicted_class,
